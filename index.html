@@ -1,0 +1,154 @@
+<html> 
+    <head> 
+        <script> 
+                let pislist= ['30000000000','40000000000']
+            function Register() { 
+                var name =  
+                    document.forms["RegForm"]["Name"];
+                var lastname =  
+                document.forms["RegForm"]["Lastname"];
+                var pis  =  //personal idenfication code
+                    document.forms["RegForm"]["Personal Idenfication code"];   
+                var gender =  
+                    document.forms["RegForm"]["Gender"]; 
+                var phone =  
+                    document.forms["RegForm"]["Telephone"]; 
+                var course =  
+                    document.forms["RegForm"]["Course"]; 
+                var form = 
+                    document.forms["RegForm"]["Form of studies"]; 
+                var p =pislist.indexOf(pis.value) ;
+  
+                if (name.value == "") { 
+                    window.alert("Please enter your name."); 
+                    name.focus(); 
+                    return false; 
+                }
+                if(lastname.value == ""){
+                    window.alert("Please ender your last name.")
+                    lastname.focus();
+                } 
+  
+                if (pis.value == "") { 
+                    window.alert("Please enter your personal idenfication code."); 
+                    pis.focus(); 
+                    return false;
+                }
+                //Check if the personal idenfication code exist in the list
+                if(Boolean(p) ==true){
+                    window.alert('There is no such code.');
+                    pis.focus();
+                    return false;
+                }
+               
+               
+                if (gender.value == "") { 
+                    window.alert("Please enter your gender."); 
+                    gender.focus(); 
+                    return false; 
+                } 
+  
+                if (phone.value == "") { 
+                    window.alert( 
+                      "Please enter your telephone number."); 
+                    phone.focus(); 
+                    return false; 
+                } 
+                if(phone.value.length <13){
+                    window.alert("Not enough phone digits");
+                    phone.focus()
+                    return false;
+                }
+                if(phone.value.length >13){
+                    window.alert("your phone number has more than 13 digits");
+                    phone.focus()
+                    return false;
+                }
+               
+
+                
+  
+                if (course.value == "") { 
+                    window.alert("Please enter your course."); 
+                    course.focus(); 
+                    return false; 
+                } 
+                if (form.value == "") { 
+                    window.alert("Please enter your form of studies."); 
+                    form.focus(); 
+                    return false; 
+                } 
+                else {
+                    window.alert("Registration is succesful!")
+                }
+                    
+                    
+
+            
+  
+                return true; 
+            } 
+        </script> 
+  
+        <style> 
+            div { 
+                box-sizing: border-box; 
+                width: 100%; 
+                border: 100px solid black; 
+                float: left; 
+                align-content: center; 
+                align-items: center; 
+            } 
+  
+            form { 
+                margin: 0 auto; 
+                width: 600px; 
+            } 
+        </style> 
+    </head> 
+  
+    <body> 
+        <h1 style="text-align: center;">REGISTRATION FORM</h1> 
+        <form name="RegForm" action="/submit.php" 
+              onsubmit="return Register() " method="post"> 
+            <p>Name: <input type="text" 
+                            size="65" name="Name" /></p> 
+            <br /> 
+            <p>Lastname: <input type="text" 
+                size="65" name="Lastname" /></p> 
+            <br />
+            <p>Personal Idenfication code: <input type="text" 
+                               size="65" name="Personal Idenfication code" /> 
+          </p> 
+            <br />
+            <p> 
+                Gender: 
+                <input type="text"
+                        size="65" name="Gender"/>
+            </p> 
+            <br />   
+            <p>Telephone: <input type="text" 
+                        size="65" name="Telephone" /></p> 
+            <br /> 
+  
+            <p> 
+                Course: 
+                <input type="text"
+                size="65" name="Course" />
+            </p> 
+            <br /> 
+            <p> 
+                Form of studies: 
+               <input type= "text"
+               size="65" name= "Form of studies" />
+            </p> 
+            <br />
+
+                <input type="submit" 
+                       value="Submit" name="Submit" /> 
+                <input type="reset" 
+                       value="Reset" name="Reset" /> 
+            </p> 
+        </form> 
+    </body> 
+</html> 
